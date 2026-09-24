@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Заявка на браслет WenStone | Оставить заказ</title>
+    <meta name="description" content="Оставьте заявку на авторский браслет из натуральных камней и дерева. Мы свяжемся с вами для уточнения деталей.">
+    <style>
+        * {margin:0;padding:0;box-sizing:border-box;font-family:Arial, sans-serif;}
+        header {background:#222;color:#fff;padding:1rem;}
+        nav {max-width:1200px;margin:0 auto;display:flex;gap:2rem;align-items:center;flex-wrap:wrap;}
+        .logo {font-size:1.5rem;font-weight:bold;}
+        nav a {color:#fff;text-decoration:none;}
+        nav a:hover {text-decoration:underline;}
+        .container {max-width:1200px;margin:3rem auto;padding:0 1rem;}
+        h1 {font-size:2.5rem;margin-bottom:1rem;text-align:center;}
+        .subtitle {font-size:1.2rem;color:#444;margin-bottom:3rem;text-align:center;max-width:800px;margin-left:auto;margin-right:auto;}
+        .form-container {max-width:600px;margin:0 auto 4rem;padding:2rem;background:#f5f5f5;border-radius:8px;}
+        .form-group {margin-bottom:1.5rem;}
+        label {display:block;margin-bottom:0.5rem;font-weight:bold;color:#222;}
+        input, select, textarea {width:100%;padding:0.8rem;border:1px solid #ddd;border-radius:4px;font-size:1rem;}
+        textarea {resize:vertical;min-height:100px;}
+        .checkbox-group {display:flex;align-items:flex-start;gap:0.5rem;}
+        .checkbox-group input {width:auto;margin-top:0.3rem;}
+        .checkbox-group label {font-weight:normal;}
+        .btn {display:inline-block;padding:0.8rem 1.5rem;background:#222;color:#fff;border-radius:4px;text-decoration:none;border:none;cursor:pointer;font-size:1rem;}
+        .btn:hover {background:#444;}
+        .form-success {display:none;padding:1rem;background:#e8f5e9;color:#2e7d32;border-radius:4px;margin-bottom:1.5rem;}
+        footer {margin-top:6rem;padding:2rem;background:#222;color:#fff;text-align:center;font-size:0.9rem;}
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">WenStone</div>
+            <a href="index.html">Главная</a>
+            <a href="catalog.html">Каталог</a>
+            <a href="size.html">Размер</a>
+            <a href="care.html">Уход</a>
+            <a href="application.html">Заявка</a>
+        </nav>
+    </header>
+    <main class="container">
+        <h1>Заявка на браслет WenStone</h1>
+        <p class="subtitle">Заполните форму, и мы свяжемся с вами в ближайшее время для уточнения деталей</p>
+
+        <div class="form-container">
+            <div class="form-success" id="formSuccess">
+                Заявка успешно отправлена! Мы свяжемся с вами в ближайшее время.
+            </div>
+            <form id="orderForm">
+                <div class="form-group">
+                    <label for="name">Имя *</label>
+                    <input type="text" id="name" name="name" required placeholder="Введите ваше имя">
+                </div>
+                <div class="form-group">
+                    <label for="phone">Телефон *</label>
+                    <input type="tel" id="phone" name="phone" required placeholder="+7 (XXX) XXX-XX-XX">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="example@mail.ru">
+                </div>
+                <div class="form-group">
+                    <label for="product">Выбранный товар *</label>
+                    <select id="product" name="product" required>
+                        <option value="">Выберите товар</option>
+                        <option value="Green Balance">Green Balance (нефрит)</option>
+                        <option value="Wood Lava">Wood Lava (лавовый камень + дерево)</option>
+                        <option value="Индивидуальная сборка">Индивидуальная сборка</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="size">Размер браслета *</label>
+                    <select id="size" name="size" required>
+                        <option value="">Выберите размер</option>
+                        <option value="S">S (16 см)</option>
+                        <option value="M">M (17 см)</option>
+                        <option value="L">L (18 см)</option>
+                        <option value="XL">XL (19 см)</option>
+                        <option value="Индивидуальный размер">Индивидуальный размер</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="comment">Комментарии</label>
+                    <textarea id="comment" name="comment" placeholder="Укажите дополнительные детали, пожелания к заказу"></textarea>
+                </div>
+                <div class="form-group checkbox-group">
+                    <input type="checkbox" id="agree" name="agree" required>
+                    <label for="agree">Я согласен на обработку персональных данных *</label>
+                </div>
+                <button type="submit" class="btn">Отправить заявку</button>
+            </form>
+        </div>
+    </main>
+    <footer>
+        © WenStone 2026. Все права защищены. Сайт является учебным некоммерческим проектом, реальные заказы не принимаются.
+    </footer>
+
+    <script>
+        document.getElementById('orderForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            document.getElementById('formSuccess').style.display = 'block';
+            this.reset();
+            setTimeout(() => {
+                document.getElementById('formSuccess').style.display = 'none';
+            }, 5000);
+        });
+    </script>
+</body>
+</html>
